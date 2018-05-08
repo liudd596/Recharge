@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>流量充值</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link type="text/css" rel="stylesheet" href="../Content/css/base.css">
+    <link type="text/css" rel="stylesheet" href="../Content/css/recharge.css">
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link rel="stylesheet" href="../Content/plugins/font-awesome/css/font-awesome.min.css">
+
+</head>
+<body class="max-body">
+<div class="box on pd-10 show-forever bg_white pos-r">
+    <div class="page-content mgl-6" id="page-content-card">
+        <div class="stc-recharge-phone-card">
+            <div class="stc-recharge-input  ">
+                <input class="stc-common-inline" name="phonenum" id="phonenum" maxlength="11" type="text" placeholder="请输入手机号">
+            </div>
+        </div>
+        <div class="hg30">
+            <div class="stc-recharge-belong"><img class="lang-flag" src="../Content/images/yid.png" alt="" width="12"/><span class="lang-name">北京移动</span></div>
+            <p class="fs-7 ta-left fc-red" style="display: none">亲，请输入正确的手机号</p>
+        </div>
+        <div style="position: absolute;right: 6%;top: 6%;">
+            <img class="img-circle img-user media-object" src="../Content/images/av1.png" alt="" width="56"/>
+        </div>
+    </div>
+    <div style="overflow:hidden;height: 260px">
+        <div class="mgt-30 mgb-30 page-flow">
+            <ol class="mgl-10 mgt-10" style="width: 110%;">
+                <ul class="page-flow-ulone">
+                    <li><i class="fa fa-share-alt-square fa-lg" aria-hidden="true"></i></li>
+                </ul>
+                <ul class="page-flow-ultwo mgl-30">
+                    <li></li>
+                </ul>
+            </ol>
+        </div>
+    </div>
+
+    <!--Tab切换-->
+    <div id="tabbox">
+        <ul class="tabs" id="tabs">
+            <li><a href="#" tab="tab1" style="border-right: 2px solid #e5e5e5;">全国通用</a></li>
+            <li><a href="#" tab="tab2">省内可用</a></li>
+        </ul>
+        <ul class="tab_conbox" id="tab_conbox">
+            <li id="tab1" class="tab_con">
+                <div class="stc-recharge-amount-area">
+                    <div class="stc-common-inline"><p class="stc-common-p1">10M</p><p class="stc-common-p2">3.00元</p></div>
+                    <div class="stc-common-inline"><p class="stc-common-p1">10M</p><p class="stc-common-p2">3.00元</p></div>
+                    <div class="stc-common-inline"><p class="stc-common-p1">10M</p><p class="stc-common-p2">3.00元</p></div>
+                </div>
+                <div class="clearfix"></div>
+            </li>
+            <li id="tab2" class="tab_con">
+                <div class="stc-recharge-amount-area" >
+                    <div class="stc-common-inline"><p class="stc-common-p1">20M</p><p class="stc-common-p2">4.00元</p></div>
+                    <div class="stc-common-inline"><p class="stc-common-p1">20M</p><p class="stc-common-p2">4.00元</p></div>
+                    <div class="stc-common-inline"><p class="stc-common-p1">20M</p><p class="stc-common-p2">4.00元</p></div>
+                </div>
+                <div class="clearfix"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="../Content/js/jquery.js"></script>
+<!----------------------Tab切换---------------->
+<script src="../Content/js/mySystem.js"></script>
+<script>
+    $(document).ready(function() {
+        jQuery.jqtab = function(tabtit,tabcon) {
+            $(tabcon).hide();
+            $(tabtit+" li:first").addClass("thistab").show();
+            $(tabcon+":first").show();
+            $(tabtit+" li").mouseover(function() {
+                $(tabtit+" li").removeClass("thistab");
+                $(this).addClass("thistab");
+                $(tabcon).hide();
+                var activeTab = $(this).find("a").attr("tab");
+                $("#"+activeTab).fadeIn();
+                return false;
+            });
+        };
+        /*调用方法如下：*/
+        $.jqtab("#tabs",".tab_con");
+    });
+</script>
+</body>
+</html>
